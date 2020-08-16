@@ -25,18 +25,20 @@ data_colors = {
     "GOALAREA" : 7
 }
 
+
 class InteractiveLandmarkStatus(Enum):
     CLEARED = 1,
     POSITIVE = 2,
     NEGATIVE = 3
+
 
 class InteractiveLandmarkBelief(Enum):
     CLEARED = 1,
     KNOWN = 2,
     QUESTIONMARK = 3
 
-class Plotter:
 
+class Plotter:
     def __init__(self, program, annotation, model):
         self._program  = program
         self._model = model
@@ -219,7 +221,6 @@ class Plotter:
 
             self._tmp_objects.append(adv)
 
-
     def _set_adversary(self, xloc, yloc, adv_direction, radius, i=0):
         if adv_direction is None:
             adv = patches.Rectangle((xloc + 0.25, yloc + 0.25), 0.5, 0.5, linewidth=1, edgecolor='saddlebrown', facecolor='sienna')
@@ -252,10 +253,7 @@ class Plotter:
     def _set_ego(self, ax, xloc, yloc, radius):
         # Create a Rectangle patch
         if self._ego_image:
-
-
             ego = AnnotationBbox(self._ego_image, (xloc+0.5, yloc+0.5))
-
             ax.add_artist(ego)
         else:
             ego = patches.Rectangle((xloc+0.25, yloc+0.25), 0.5, 0.5, linewidth=1, edgecolor='b', facecolor='b')
@@ -301,16 +299,15 @@ class Plotter:
             return None
         return list(self._model.choice_labeling.get_labels_of_choice(self._model.get_choice_index(state, action)))[0]
 
-
     def _set_actions(self, state, xloc, yloc, available, allowed, selected):
         acts = self._model.choice_labeling.get_labels()
         maxlen = 0
         for act in acts:
             maxlen = max(maxlen, len(act))
 
-        available_strings = [ list(self._model.choice_labeling.get_labels_of_choice(self._model.get_choice_index(state,act))) for act in available]
+        available_strings = [ list(self._model.choice_labeling.get_labels_of_choice(self._model.get_choice_index(state, act))) for act in available]
         available_strings = [ l[0] if len(l)>0 else None for l in available_strings]
-        allowed_strings = [list(self._model.choice_labeling.get_labels_of_choice(self._model.get_choice_index(state,act))) for act in
+        allowed_strings = [list(self._model.choice_labeling.get_labels_of_choice(self._model.get_choice_index(state, act))) for act in
                              allowed]
         allowed_strings = [l[0] if len(l) > 0 else None for l in allowed_strings]
         if selected is not None:
@@ -422,7 +419,6 @@ class Plotter:
         else:
             return None
 
-
     def _get_ego_radius(self):
         if self._ego_scanned_last_round:
             return math.inf
@@ -512,12 +508,11 @@ class Plotter:
                                 verticalalignment='top', bbox=props)
             self._tmp_objects.append(txt)
 
-        ax.pcolor(self._data, cmap=colors,edgecolors='k', linestyle= 'dashed', linewidths=0.2, vmin=0, vmax=7)
+        ax.pcolor(self._data, cmap=colors, edgecolors='k', linestyle= 'dashed', linewidths=0.2, vmin=0, vmax=7)
 
         logger.debug("done rendering")
         if show:
             plt.show()
-
 
     def record(self, file, trace):
         moviewriter = mpl.animation.FFMpegWriter(fps=3)
@@ -526,11 +521,8 @@ class Plotter:
         with moviewriter.saving(self._fig, file, dpi=100):
             it = iter(trace)
 
-
             for snapshot in tqdm(trace):
                 self.render(snapshot, show_frame_count=i)
-                if (i==10):
-                    self._fig.savefig('example-plot.pdf')
                 moviewriter.grab_frame()
                 i += 1
         self._reset()

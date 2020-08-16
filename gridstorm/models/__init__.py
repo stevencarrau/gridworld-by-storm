@@ -137,7 +137,7 @@ _grid_refuel = dict({'ego-xvar-module' : 'rover',
                       })
 
 def refuel(N, ENERGY):
-    return Model(_example_path("refuel.nm"), ProgramAnnotation(_grid_refuel), ["Pmax=? [\"notbad\" U \"goal\"]"], constants=f"N={N},ENERGY={ENERGY}", ego_icon=rover_icon)
+    return Model(_example_path("refuel.nm"), ProgramAnnotation(_grid_refuel), ["Pmax=? [\"notbad\" U \"goal\"]"], constants=f"N={N},ENERGY={ENERGY}")
 
 _grid_rocks = dict({'ego-xvar-module' : 'robot',
                       'ego-xvar-name' : 'x',
@@ -159,6 +159,6 @@ _grid_rocks = dict({'ego-xvar-module' : 'robot',
 def rocks(N, K=2):
     K = int(K)
     if K == 2:
-        return Model(_example_path("rocks2.nm"), ProgramAnnotation(_grid_rocks), ["Pmax=? [\"notbad\" U \"goal\"]"], constants=f"N={N}", ego_icon=rover_icon)
+        return Model(_example_path("rocks2.nm"), ProgramAnnotation(_grid_rocks), ["Pmax=? [\"notbad\" U \"goal\"]"], constants=f"N={N}")
     else:
         raise RuntimeError("Rocks is only available with 2 or 3 rocks")

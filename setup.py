@@ -10,10 +10,15 @@ setup(
     package_data={
         # If any package contains *.nm or *.rst files, include them:
         "": ["*.nm", "*.rst"],
+        "gridstorm.models": ["files/*.nm"]
     },
+    include_package_data=True,
 
     # metadata to display on PyPI
-    # author omitted for anonymity
+    author=["Sebastian Junges"],
     description="This is a benchmark set visualiser for simulating grid worlds with storm.",
     keywords="gridworld storm model-checking",
+    install_requires=[
+        "stormpy>=1.6.0", "matplotlib"
+    ],
 )

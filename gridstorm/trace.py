@@ -1,3 +1,31 @@
+class Snapshot:
+    def __init__(self, trace, index=0):
+        self._index = index
+        self._trace = trace
+
+    def __next__(self):
+        self._index += 1
+        if self._index == len(self._trace):
+            raise StopIteration()
+        return self
+
+    @property
+    def state(self):
+        return self._trace._states[self._index]
+
+    @property
+    def action(self):
+        return self._trace._actions[self._index]
+
+    @property
+    def available_actions(self):
+        return self._trace._available_actions[self._index]
+
+    @property
+    def considered_actions(self):
+        return self._trace._considered_actions[self._index]
+
+
 class Trace:
     def __init__(self):
         self._states = []
@@ -18,7 +46,7 @@ class Trace:
         self._considered_actions.append(considered_actions)
 
     def __len__(self):
-        return len(self._states)-1
+        return len(self._states)
 
     def check_validity(self):
         if len(self._states) != len(self._actions):
@@ -26,41 +54,17 @@ class Trace:
         if len(self._actions) != len(self._available_actions):
             raise RuntimeError("Invalid path (nr actions and nr available action sets do not match)")
 
+    def __iter__(self):
+        return Snapshot(self)
 
-class BeliefSnapshot:
+
+class BeliefSnapshot(Snapshot):
     def __init__(self, trace, index=0):
-        self._index = index
-        self._trace = trace
-
-    def __next__(self):
-        self._index += 1
-        if self._index == len(self._trace):
-            raise StopIteration()
-        return self
-
-    @property
-    def state(self):
-        return self._trace._states[self._index]
-
-    @property
-    def action(self):
-        return self._trace._actions[self._index]
+        super().__init__(trace, index)
 
     @property
     def potential_states(self):
         return self._trace._potential_states[self._index]
-
-    @property
-    def available_actions(self):
-        return self._trace._available_actions[self._index]
-
-    @property
-    def considered_actions(self):
-        return self._trace._considered_actions[self._index]
-
-
-
-
 
 
 class BeliefTrace(Trace):
