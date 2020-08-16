@@ -464,9 +464,10 @@ class Plotter:
         else:
             self._ego_scanned_last_round = False
         self._set_ego(ax, ego_xloc, ego_yloc, ego_radius)
-        for bstate in snapshot.potential_states:
-            ego_xloc_alt, ego_yloc_alt = self._get_ego_loc(bstate)
-            self._set_ego_alternatives(ax, ego_xloc_alt, ego_yloc_alt)
+        if hasattr(snapshot, 'potential_states'):
+            for bstate in snapshot.potential_states:
+                ego_xloc_alt, ego_yloc_alt = self._get_ego_loc(bstate)
+                self._set_ego_alternatives(ax, ego_xloc_alt, ego_yloc_alt)
 
         for cameraindex in range(self._annotation.nr_cameras):
             self._set_camera(cameraindex)
@@ -485,9 +486,10 @@ class Plotter:
             adv_radius = self._get_adv_radius()
 
             self._set_adversary(adv_xloc, adv_yloc, adv_direction, adv_radius, i)
-            for bstate in snapshot.potential_states:
-                adv_xloc_alt, adv_yloc_alt = self._get_adv_loc(bstate,i)
-                self._set_adv_alternatives(adv_xloc_alt, adv_yloc_alt)
+            if hasattr(snapshot, 'potential_states'):
+                for bstate in snapshot.potential_states:
+                    adv_xloc_alt, adv_yloc_alt = self._get_adv_loc(bstate,i)
+                    self._set_adv_alternatives(adv_xloc_alt, adv_yloc_alt)
 
         self._set_actions(snapshot.state, ego_xloc, ego_yloc, snapshot.available_actions, snapshot.considered_actions, snapshot.action)
 
