@@ -459,19 +459,25 @@ class Plotter:
         ax = self._ax
         ego_xloc, ego_yloc = self._get_ego_loc(snapshot.state)
         ego_radius = self._get_ego_radius()
+
+
         if  self._get_action_string(snapshot.state, snapshot.action) is not None and self._get_action_string(snapshot.state, snapshot.action) == self._annotation.scan_action:
             self._ego_scanned_last_round = True
         else:
             self._ego_scanned_last_round = False
         self._set_ego(ax, ego_xloc, ego_yloc, ego_radius)
+
+        # only for belief support traces
         if hasattr(snapshot, 'potential_states'):
             for bstate in snapshot.potential_states:
                 ego_xloc_alt, ego_yloc_alt = self._get_ego_loc(bstate)
                 self._set_ego_alternatives(ax, ego_xloc_alt, ego_yloc_alt)
 
+        # allow to always see an area
         for cameraindex in range(self._annotation.nr_cameras):
             self._set_camera(cameraindex)
 
+        # For rendering stuff like energy bars
         if self._annotation.has_resources:
             module, var = self._annotation.resource_identifiers[0]
             var = self._program.get_module(module).get_integer_variable(var).expression_variable
@@ -479,6 +485,7 @@ class Plotter:
             max_resource_level = self._program.get_constant(self._annotation.max_resource_level_constants[0]).definition.evaluate_as_int()
             self._set_resources(float(resource_level)/float(max_resource_level))
 
+        # For rendering all other moving obstacles
         for i in range(self._annotation.nr_adversaries):
             self._set_adv_area(i)
             adv_xloc, adv_yloc = self._get_adv_loc(snapshot.state,i)
@@ -491,8 +498,10 @@ class Plotter:
                     adv_xloc_alt, adv_yloc_alt = self._get_adv_loc(bstate,i)
                     self._set_adv_alternatives(adv_xloc_alt, adv_yloc_alt)
 
+        # Determine which actions we take
         self._set_actions(snapshot.state, ego_xloc, ego_yloc, snapshot.available_actions, snapshot.considered_actions, snapshot.action)
 
+        # For rendering obstacles that have a state (but that do not move)
         for i in range(self._annotation.nr_interactive_landmarks):
             x, y = self._get_interactive_landmark_loc(i)
             status = self._get_interactive_landmark_status(snapshot.state, i)
@@ -503,6 +512,7 @@ class Plotter:
                     break
             self._set_interactive_landmarks(x, y, status, belief, i)
 
+        # Right bottom (number of steps so far)
         if show_frame_count:
             props = dict(boxstyle='round', facecolor='white', alpha=0.5)
             txt = self._ax_info.text(1.0, -0.01, str(show_frame_count), fontdict={'family': 'monospace'},
