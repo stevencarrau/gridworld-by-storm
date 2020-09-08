@@ -24,7 +24,6 @@ class VideoRecorder:
         self._path = None
 
     def record_state(self, state):
-        print(state)
         self._path.append_state(state)
 
     def record_selected_action(self, action):
