@@ -5,4 +5,4 @@ For that, the project currently contains
 - a series of gridworlds, and 
 - a renderer to render traces in these gridworlds.
 
-More to come!
+Please check the demo.py for a usage-example!
