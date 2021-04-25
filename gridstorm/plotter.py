@@ -532,8 +532,7 @@ class Plotter:
         i = 1
         with moviewriter.saving(self._fig, file, dpi=100):
             it = iter(trace)
-
-            for snapshot in tqdm(trace):
+            for snapshot in tqdm(trace, total=len(trace)-1):
                 self.render(snapshot, show_frame_count=i)
                 moviewriter.grab_frame()
                 i += 1
