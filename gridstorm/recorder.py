@@ -39,8 +39,9 @@ class VideoRecorder:
         for path in self._paths:
             path.trim_from_end(length)
 
-    def save(self, path, prefix):
+    def save(self, path, prefix, gif=False):
         for i, trace in enumerate(self._paths):
-            mp4file = os.path.join(path,f"{prefix}-{i}.mp4")
+            suffix = "gif" if gif else "mp4"
+            mp4file = os.path.join(path,f"{prefix}-{i}.{suffix}")
             logger.info(f"Rendering {mp4file}")
             self._renderer.record(mp4file, trace)

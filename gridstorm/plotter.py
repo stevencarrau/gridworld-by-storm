@@ -527,7 +527,15 @@ class Plotter:
             plt.show()
 
     def record(self, file, trace):
-        moviewriter = mpl.animation.FFMpegWriter(fps=3)
+        if file.endswith(".gif"):
+            gif = True
+        else:
+            gif = False
+
+        if gif:
+            moviewriter = mpl.animation.ImageMagickWriter(fps=3)
+        else:
+            moviewriter = mpl.animation.FFMpegWriter(fps=3)
         trace.check_validity()
         i = 1
         with moviewriter.saving(self._fig, file, dpi=100):
