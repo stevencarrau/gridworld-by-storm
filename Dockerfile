@@ -1,11 +1,10 @@
-FROM stormpy
-RUN mkdir /opt/gridworld
-WORKDIR /opt/gridworld
+FROM sjunges/stormpy:1.6.4
+RUN mkdir /opt/gridstorm
+WORKDIR /opt/gridstorm
 
 RUN apt-get install -y ffmpeg
 
 ENV VIRTUAL_ENV=/opt/venv
-RUN python3 -m virtualenv --python=/usr/bin/python3 $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 COPY requirements.txt ./

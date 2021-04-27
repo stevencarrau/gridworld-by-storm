@@ -1,6 +1,4 @@
 .git/
-.dockerignore
-.gitignore
 
 build
 dist
@@ -19,3 +17,6 @@ docs/_build
 
 .idea
 .DS_Store
+
+*.gif
+*.mp4
