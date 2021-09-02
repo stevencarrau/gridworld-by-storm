@@ -78,7 +78,7 @@ rewards "costs"
     [south] true : 1;
     [west] true : 1;
     [east] true : 1;
-    [scan] true : 2;
+    [scan] true : 1;
     [] crash = true:100; 
 endrewards
 

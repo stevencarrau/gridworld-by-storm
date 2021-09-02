@@ -37,7 +37,7 @@ observable "hascrash" = crash;
 formula atStation = (ax = rf1x & ay = rf1y) | (ax = rf2x & ay = rf2y) |  (ax = rf3x & ay = rf3y);
 formula canRefuel = atStation  & fuel < fuelCAP;
 observable "refuelAllowed" = canRefuel;
-observable "fuelempty" = fuel > 0;
+observable "fuelempty" = fuel = 0;
 observable "fuelfull" = fuel = ENERGY;
 observable "fuelmeter" = floor(fuel/(ENERGY/RESOLUTION));
 
@@ -103,6 +103,6 @@ endrewards
 
 
 label "goal" = done;
-label "traps" = crash;
+label "traps" = crash|(fuel=0);
 label "stationvisit" = atStation;
 label "notbad" =  !crash & (fuel > 0 | canRefuel);
