@@ -103,6 +103,6 @@ endrewards
 
 
 label "goal" = done;
-label "traps" = crash|(fuel=0);
+label "traps" = crash;
 label "stationvisit" = atStation;
 label "notbad" =  !crash & (fuel > 0 | canRefuel);
