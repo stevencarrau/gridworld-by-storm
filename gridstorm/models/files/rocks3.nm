@@ -83,15 +83,15 @@ label "rockposition" = (!r1taken & r1x = x & r1y = y) | (!r2taken & r2x = x & r2
 label "notbad" = !bad;
 
 rewards "costs"
-    [north] true : 1;
-    [south] true : 1;
-    [west] true : 1;
-    [east] true : 1;
-    [r1sense] true : 2;
+    [north] true : 0;
+    [south] true : 0;
+    [west] true : 0;
+    [east] true : 0;
+    [r1sense] true : 0;
     [r1sample] r1qual=false : 10;
-    [r2sense] true : 2;
+    [r2sense] true : 0;
     [r2sample] r2qual=false : 10;
-    [r3sense] true : 2;
+    [r3sense] true : 0;
     [r3sample] r3qual=false : 10;
 endrewards
 
