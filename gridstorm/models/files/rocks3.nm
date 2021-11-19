@@ -32,7 +32,7 @@ formula r2dist = max(r2x-x,x-r2x) + max(r2y-y,y-r2y);
 formula r3dist = max(r3x-x,x-r3x) + max(r3y-y,y-r3y);
 formula bad = (r1taken & !r1qual) | (r2taken & !r2qual) | (r3taken & !r3qual);
 label "seebad" = bad;
-formula done = bad | finish;
+formula done = finish;
 
 formula normdistr1 = 1+(r1dist/maxdist);
 formula normdistr2 = 1+(r2dist/maxdist);
