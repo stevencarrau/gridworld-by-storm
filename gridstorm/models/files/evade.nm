@@ -83,6 +83,6 @@ rewards "costs"
 endrewards
 
 rewards "gains"
-    [placement] true:5;
+    [placement] true:11.75;
     [] done=true:10;
 endrewards
