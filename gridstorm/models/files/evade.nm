@@ -74,14 +74,15 @@ label "traps" = crash;
 label "notbad" =  !crash;
 
 rewards "costs"
-    [north] true : 0;
-    [south] true : 0;
-    [west] true : 0;
-    [east] true : 0;
-    [scan] true : 0;
-    [] crash = true:100; 
+    [north] true : 0.01;
+    [south] true : 0.01;
+    [west] true : 0.01;
+    [east] true : 0.01;
+    [scan] true : 0.01;
+    [] crash = true:00; 
 endrewards
 
 rewards "gains"
-    [] done=true:100;
+    [placement] true:5;
+    [] done=true:10;
 endrewards
