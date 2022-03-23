@@ -77,28 +77,7 @@ module rover
 endmodule
 
 rewards "costs"
-    [north] true : 0;
-    [south] true : 0;
-    [west] true : 0;
-    [east] true : 0;
-    [refuel] true : 0;
-    [empty] true : 0; 
-endrewards
-
-rewards "gains"
-    [] done=true : 10;
-endrewards
-
-
-rewards "steps"
-    [north] true : 1;
-    [south] true : 1;
-    [west] true : 1;
-    [east] true : 1;
-endrewards
-
-rewards "refuels"
-    [refuel] true : 1;
+    !done : 1;
 endrewards
 
 

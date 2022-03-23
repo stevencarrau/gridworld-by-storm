@@ -83,13 +83,6 @@ label "notbad" =  !left;
 label "exits" = left;
 label "traps" = left;
 
-rewards "costs"
-    [north] true : 1;
-    [south] true : 1;
-    [west] true : 1;
-    [east] true : 1;
-endrewards
-
-rewards "gains"
-    [] done=true:100;
+rewards
+    turn : 1;
 endrewards
