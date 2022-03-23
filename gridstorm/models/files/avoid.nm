@@ -18,7 +18,7 @@ const int dxMAX = xMAX;
 const int dyMAX = yMAX;
 const int dxMIN = 0;
 const int dyMIN = 0;
-const double slippery = 0.0;
+const double slippery;
 
 
 formula westenabled = dx != dxMIN;

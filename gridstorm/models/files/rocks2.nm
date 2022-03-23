@@ -9,7 +9,7 @@ const int xMAX = N-1;
 const int yMAX = N-1;
 const int xMIN = 0;
 const int yMIN = 0;
-const double slippery = 0.0;
+const double slippery;
 // Rock positions
 const r1x = xMIN+1;
 const r1y = yMAX-1;

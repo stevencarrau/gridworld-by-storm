@@ -9,7 +9,7 @@ const int axMAX = N-1;
 const int ayMAX = N-1;
 const int axMIN = 0;
 const int ayMIN = 0;
-const double slippery = 0.1;
+const double slippery;
 const int ob1x = axMAX-1;
 const int ob1y = ayMAX-1;
 const int ob2x = axMAX;
