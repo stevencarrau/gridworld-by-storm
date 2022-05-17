@@ -96,7 +96,7 @@ rewards "costs"
 endrewards
 
 rewards "gains"
-    [] finish = true : 10;
+    finish = true : 10;
     [r1sample] r1qual=true : 10;
     [r2sample] r2qual=true : 10;
     [r3sample] r3qual=true : 10;

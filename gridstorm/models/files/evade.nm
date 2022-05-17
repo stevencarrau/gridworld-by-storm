@@ -79,10 +79,10 @@ rewards "costs"
     [west] true : 0.01;
     [east] true : 0.01;
     [scan] true : 0.01;
-    [] crash = true:00; 
+    crash = true:00; 
 endrewards
 
 rewards "gains"
     [placement] true:11.75;
-    [] done=true:10;
+    done=true:10;
 endrewards

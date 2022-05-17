@@ -91,5 +91,5 @@ rewards "costs"
 endrewards
 
 rewards "gains"
-    [] done=true:100;
+    done=true:100;
 endrewards

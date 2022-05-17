@@ -63,9 +63,9 @@ rewards "costs"
     [south] true : 1;
     [west] true : 1;
     [east] true : 1;
-    [] crash = true:100; 
+    crash = true:100; 
 endrewards
 
 rewards "gains"
-    [] done=true : 100;
+    done=true : 100;
 endrewards

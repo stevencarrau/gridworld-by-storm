@@ -86,7 +86,7 @@ rewards "costs"
 endrewards
 
 rewards "gains"
-    [] done=true : 10;
+    done=true : 10;
 endrewards
 
 
