@@ -1,7 +1,7 @@
 pomdp
 
 observables
-start
+start, ax, ay
 endobservables
 
 const int N;

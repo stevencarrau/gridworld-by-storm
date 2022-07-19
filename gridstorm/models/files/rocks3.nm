@@ -1,7 +1,7 @@
 pomdp
 
 observables
-started, r1taken, r1lastobs , r2taken, r2lastobs, r3taken, r3lastobs
+started, r1taken, r1lastobs , r2taken, r2lastobs, r3taken, r3lastobs, r1qual,r2qual,r3qual
 endobservables
 
 const int N;

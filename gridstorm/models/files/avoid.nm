@@ -1,7 +1,7 @@
 pomdp
 
 observables
-start, dx, dy, turn
+start, dx, dy, turn, ax, ay, dir,ax2, ay2, dir2
 endobservables
 
 

@@ -1,7 +1,7 @@
 pomdp
 
 observables
-start, dx, dy, turn
+start, dx, dy, turn, ax, ay
 endobservables
 
 const int RADIUS;
