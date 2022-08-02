@@ -83,6 +83,11 @@ rewards "costs"
 endrewards
 
 rewards "gains"
+    [north] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay))+1/N*max(ax-dx,dx-ax)+1/N*max(ay-dy,dy-ay);
+    [south] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay))+1/N*max(ax-dx,dx-ax)+1/N*max(ay-dy,dy-ay);
+    [west] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay))+1/N*max(ax-dx,dx-ax)+1/N*max(ay-dy,dy-ay);
+    [east] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay))+1/N*max(ax-dx,dx-ax)+1/N*max(ay-dy,dy-ay);
+    [scan] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay))+1/N*max(ax-dx,dx-ax)+1/N*max(ay-dy,dy-ay);
     [placement] true:11.75;
     done=true:10;
 endrewards

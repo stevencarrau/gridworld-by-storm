@@ -91,5 +91,10 @@ rewards "costs"
 endrewards
 
 rewards "gains"
+    [north] true : 0.1/N*(2.0*N-max(dx-ax,ax-dx) - max(dy-ay,ay-dy));
+    [south] true : 0.1/N*(2.0*N-max(dx-ax,ax-dx) - max(dy-ay,ay-dy));
+    [west] true : 0.1/N*(2.0*N-max(dx-ax,ax-dx) - max(dy-ay,ay-dy));
+    [east] true : 0.1/N*(2.0*N-max(dx-ax,ax-dx) - max(dy-ay,ay-dy));
+    [adv] true : 
     done=true:100;
 endrewards
