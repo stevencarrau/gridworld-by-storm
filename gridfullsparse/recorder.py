@@ -1,7 +1,7 @@
 import os
 import logging
 
-import gridfull.trace as trace
+import gridfullsparse.trace as trace
 
 logger = logging.getLogger(__name__)
 

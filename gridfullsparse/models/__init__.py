@@ -1,5 +1,5 @@
 import os
-from gridstorm.annotations import ProgramAnnotation, Direction
+from gridfullsparse.annotations import ProgramAnnotation, Direction
 
 class Model:
     def __init__(self, path, annotations, properties, constants="", ego_icon=None):

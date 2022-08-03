@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 setup(
-    name="gridfull",
+    name="gridfullsparse",
     version="0.1",
     packages=find_packages(),
     scripts=[],
     package_data={
         # If any package contains *.nm or *.rst files, include them:
         "": ["*.rst"],
-        "gridfull.models": ["files/*.nm"]
+        "gridfullsparse.models": ["files/*.nm"]
     },
     include_package_data=True,
 
