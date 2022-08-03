@@ -86,10 +86,6 @@ rewards "costs"
 endrewards
 
 rewards "gains"
-    [north] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay));
-    [south] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay));
-    [west] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay));
-    [east] true : 0.1/N*(2.0*N-(axMAX-ax) - (ayMAX-ay));
     done=true : 10;
     
 endrewards

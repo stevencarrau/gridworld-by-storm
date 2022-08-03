@@ -93,18 +93,6 @@ endrewards
 
 rewards "gains"
     finished = true : 10;
-    [north] !r1qual & !r2qual : 0.1/N*(1.0*N-(xMAX-x));
-    [south] !r1qual & !r2qual : 0.1/N*(1.0*N-(xMAX-x));
-    [west] !r1qual & !r2qual : 0.1/N*(1.0*N-(xMAX-x));
-    [east] !r1qual & !r2qual : 0.1/N*(1.0*N-(xMAX-x));
-    [north] r1qual : 0.1/N*(2.0*N-max(r1x-x,x-r1x)-max(r1y-y,y-r1y));
-    [south] r1qual : 0.1/N*(2.0*N-max(r1x-x,x-r1x)-max(r1y-y,y-r1y));
-    [west]  r1qual : 0.1/N*(2.0*N-max(r1x-x,x-r1x)-max(r1y-y,y-r1y));
-    [east]  r1qual : 0.1/N*(2.0*N-max(r1x-x,x-r1x)-max(r1y-y,y-r1y));
-    [north] r2qual : 0.1/N*(2.0*N-max(r2x-x,x-r2x)-max(r2y-y,y-r2y));
-    [south] r2qual : 0.1/N*(2.0*N-max(r2x-x,x-r2x)-max(r2y-y,y-r2y));
-    [west]  r2qual : 0.1/N*(2.0*N-max(r2x-x,x-r2x)-max(r2y-y,y-r2y));
-    [east]  r2qual : 0.1/N*(2.0*N-max(r2x-x,x-r2x)-max(r2y-y,y-r2y));
     [r1sample] r1qual=true : 10;
     [r2sample] r2qual=true : 10;
 endrewards
