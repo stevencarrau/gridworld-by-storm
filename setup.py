@@ -7,7 +7,7 @@ setup(
     package_data={
         # If any package contains *.nm or *.rst files, include them:
         "": ["*.rst"],
-        "gridstorm.models": ["files/*.nm"]
+        "gridfull.models": ["files/*.nm"]
     },
     include_package_data=True,
 
