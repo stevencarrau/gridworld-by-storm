@@ -1,7 +1,7 @@
 import os
 import logging
 
-import gridstorm.trace as trace
+import gridsparse.trace as trace
 
 logger = logging.getLogger(__name__)
 
